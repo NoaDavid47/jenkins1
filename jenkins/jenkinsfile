@@ -1,17 +1,18 @@
+# לא הצלחתי לעלות את הIMAGE לECR ולכן לא ביצעתי DEPLOY
 pipeline {
   agent any
   stages {
 
     stage('build'){
       steps {
-        sh 'echo $USER'        
-        sh 'sudo  docker run demo-image:latest --name noad'
+        sh 'yum install ansible'        
+        sh 'ansible-playbook -i inventory playbook1'
       }
     }
 
       stage(test){
         steps {
-          sh ''
+          sh 'docker run demo-image:latest'
         }
       }
 
@@ -24,7 +25,7 @@ pipeline {
 post { 
         always { 
             sh ' echo " removing docker " '
-           sh ' sudo docker rm -f noad '
+           sh ' sudo docker rm -f demo-image '
         }
     }  
 }
