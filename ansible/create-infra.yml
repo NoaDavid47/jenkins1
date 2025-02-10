@@ -5,19 +5,29 @@
   gather_facts: True
 
   tasks:
-  - name: install epel-release package
+  - name: install epel-release, git,  package
     yum:
-      name:
-      - epel-release
-        state: present
+      name: epel-release
+      state: present
 
-  - name: Install Git
+  - name: install epel-release, git,  package
     yum:
       name: git
       state: present
 
-  - name: 
-    yum: 
+  - name: install epel-release, git,  package
+    yum:
+      name: python-pip
+      state: present
+  
+  - name: install epel-release, git,  package
+    yum:
+      name: yum-utils
+      state: present
+      
+  - name: packeges of docker someting weird
+    shell: "yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo"
+  
     
 
 
