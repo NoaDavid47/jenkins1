@@ -1,0 +1,37 @@
+- name: Setup web server
+  hosts: 
+  user: ec2-user
+  become: True
+  gather_facts: True
+
+  tasks:
+  - name: install epel-release package
+    yum:
+      name:
+      - epel-release
+        state: present
+
+  - name: Install Git
+    yum:
+      name: git
+      state: present
+
+  - name: 
+    yum: 
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
