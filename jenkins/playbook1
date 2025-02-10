@@ -35,10 +35,13 @@
     - name: clone repo
       git:
         repo: 'https://github.com/NoaDavid47/jenkins1.git'
-        dest: /home/ec2-user/
+        dest: /home/ec2-user/my_repo
         force: yes
 
+    - name: get to the right directory
+      shell: 'cd myr_repo/jenkins1'
 
     - name: build the image
-      shell: "sudo docker build -t demo-image:latest ."
-~                                                       
+      shell: 'sudo docker build -t demo-image:latest .'
+                                 
+    
