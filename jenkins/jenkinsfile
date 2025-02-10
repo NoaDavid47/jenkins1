@@ -1,0 +1,30 @@
+pipeline {
+  agent any
+  stages {
+
+    stage('build'){
+      steps {
+        sh 'echo $USER'        
+        sh 'sudo  docker run demo-image:latest --name noad'
+      }
+    }
+
+      stage(test){
+        steps {
+          sh ''
+        }
+      }
+
+      stage(deploy){
+        steps {
+          sh 'aws s3 cp html/index.html s3://jenkins-noa'
+}
+        }
+      }  
+post { 
+        always { 
+            sh ' echo " removing docker " '
+           sh ' sudo docker rm -f noad '
+        }
+    }  
+}
